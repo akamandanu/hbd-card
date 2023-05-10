@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0C134F;
+}
+
+.amplop{
+    width: 20rem;
+    height: 15rem;
+    background-color: #5C469C;
+    border-radius: 10px;
+    position: relative;
+}
+
+.triangle {
+    width: 20rem;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #ffffff;
+    border-radius: 10px;
+}
+
+#triangle-open{
+    width: 20rem;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #5C469C;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+}
+
+button{
+    width: 5rem;
+    height: 5rem;
+    background-color: #D4ADFC;
+    border-radius: 50%;
+    position: absolute;
+    left: 7.5rem;
+    top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
+}
+
+.amplop.opened #triangle-open {
+    animation: openAnimation 1s ease-in-out forwards;
+}
+
+@keyframes openAnimation {
+    0% { transform: translateY(0) rotateX(0); }
+    100% { transform: translateY(-100%) rotateX(180deg); }
+}
+
+.card{
+    width: 15rem;
+    height: 0;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 14.8rem;
+    transition: transform 2s;
+    opacity: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.card.moving {
+    animation-name: expandAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    opacity: 1;
+}
+
+@keyframes expandAnimation {
+    0% {
+      width: 20rem;
+      height: 0;
+    }
+    100% {
+      width: 20rem;
+      height: 15rem;
+    }
+  }
+
+.images{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #0C134F;
+}
+
+.images img{
+    width: 10rem;
+    animation-name: card;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    opacity: 0;
+    padding-top: 20px;
+    
+}
+
+.images h1{
+    text-align: center;
+    animation-name: card;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    opacity: 0;
+}
+
+.images p{
+    animation-name: card;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    opacity: 0;
+    padding-top: 10px;
+}
+
+@keyframes card {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+      transform: scale(1);
+    }
+  }
